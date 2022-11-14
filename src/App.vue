@@ -3,9 +3,11 @@ import IconPiniaVue from "./components/icons/IconPinia.vue";
 import { useTasksStore } from "./stores/tasks";
 import TaskDetails from "./components/TaskDetails.vue";
 import { ref } from "vue";
+import TaskForm from "./components/TaskForm.vue";
 
 const taskStore = useTasksStore();
 const filter = ref("all");
+taskStore.getTasks();
 </script>
 
 <template>
@@ -15,6 +17,12 @@ const filter = ref("all");
       <h1>Pinia Tasks</h1>
     </div>
   </header>
+
+  <div class="new-task-form">
+    <TaskForm />
+  </div>
+
+  <div class="loading" v-if="taskStore.isLoading">Loading Tasks...</div>
 
   <nav class="filter">
     <button aria-label="Show all" @click="filter = 'all'">All Tasks</button>

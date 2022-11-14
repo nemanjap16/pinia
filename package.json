@@ -5,9 +5,11 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs --fix --ignore-path .gitignore"
+    "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs --fix --ignore-path .gitignore",
+    "start-server": "json-server --watch ./data/db.json"
   },
   "dependencies": {
+    "json-server": "^0.17.1",
     "pinia": "^2.0.23",
     "vue": "^3.2.41"
   },
